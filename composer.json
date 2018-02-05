@@ -1,0 +1,42 @@
+{
+  "name": "heimrichhannot/contao-news-leisure-bundle",
+  "type": "contao-bundle",
+  "description": "An extension for Contao News Bundle to add Leisure tipps to news.",
+  "license": "LGPL-3.0-or-later",
+  "require": {
+    "php": ">=5.6.0",
+    "heimrichhannot/contao-news-bundle": "^2.1"
+  },
+  "require-dev": {
+    "contao/manager-plugin": "^2.0",
+    "friendsofphp/php-cs-fixer": "^2.0",
+    "phpunit/phpunit": "^4.5",
+    "satooshi/php-coveralls": "^1.0",
+    "symfony/phpunit-bridge": "^2.8|^3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "HeimrichHannot\\NewsLeisureBundle\\": "src/"
+    },
+    "classmap": [
+      "src/"
+    ],
+    "exclude-from-classmap": [
+      "src/Resources/contao/config/",
+      "src/Resources/contao/dca/",
+      "src/Resources/contao/languages/",
+      "src/Resources/contao/templates/"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "HeimrichHannot\\NewsLeisureBundle\\Test\\": "tests/"
+    }
+  },
+  "config": {
+    "preferred-install": "dist"
+  },
+  "extra": {
+    "contao-manager-plugin": "HeimrichHannot\\NewsLeisureBundle\\ContaoManager\\Plugin"
+  }
+}
