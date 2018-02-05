@@ -13,9 +13,21 @@ namespace HeimrichHannot\NewsLeisureBundle\EventListener;
 
 
 use Contao\DataContainer;
+use delahaye\GeoCode;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class CallbackListener
 {
+    /**
+     * @var ContainerInterface
+     */
+    private $container;
+
+    public function __construct(ContainerInterface $container)
+    {
+        $this->container = $container;
+    }
+
     /**
      *
      * Get geo coodinates for the venue address
@@ -97,12 +109,13 @@ class CallbackListener
      */
     private function generateCoordsFromAddress($strAddress, $strCountry)
     {
-        if (!in_array('dlh_geocode', \ModuleLoader::getActive()))
+
+        if (!in_array('dlh_geocode', $this->container->getParameter('kernel.bundles') ))
         {
             return false;
         }
 
-        return \delahaye\GeoCode::getCoordinates($strAddress, $strCountry, 'de');
+        return GeoCode::getCoordinates($strAddress, $strCountry, 'de');
     }
 
     public static function formatCommaToDot($value)
