@@ -1,16 +1,12 @@
 <?php
-/**
- * Contao Open Source CMS
- *
+
+/*
  * Copyright (c) 2018 Heimrich & Hannot GmbH
  *
- * @author  Thomas Körner <t.koerner@heimrich-hannot.de>
- * @license http://www.gnu.org/licences/lgpl-3.0.html LGPL
+ * @license LGPL-3.0-or-later
  */
 
-
 namespace HeimrichHannot\NewsLeisureBundle\EventListener;
-
 
 use Contao\DataContainer;
 use delahaye\GeoCode;
@@ -29,76 +25,70 @@ class CallbackListener
     }
 
     /**
-     *
-     * Get geo coodinates for the venue address
+     * Get geo coodinates for the venue address.
      *
      * @param               $varValue
      * @param DataContainer $dc
      *
-     * @return String The coordinates
+     * @return string The coordinates
      */
-    function generateVenueCoords($varValue, DataContainer $dc)
+    public function generateVenueCoords($varValue, DataContainer $dc)
     {
-        if ($varValue != '')
-        {
+        if ('' !== $varValue) {
             return $varValue;
         }
 
         $strAddress = '';
 
-        if ($dc->activeRecord->venueStreet != '')
-        {
+        if ('' !== $dc->activeRecord->venueStreet) {
             $strAddress .= $dc->activeRecord->venueStreet;
         }
 
-        if ($dc->activeRecord->venuePostal != '' && $dc->activeRecord->venueCity)
-        {
-            $strAddress .= ($strAddress ? ',' : '') . $dc->activeRecord->venuePostal . ' ' . $dc->activeRecord->venueCity;
+        if ('' !== $dc->activeRecord->venuePostal && $dc->activeRecord->venueCity) {
+            $strAddress .= ($strAddress ? ',' : '').$dc->activeRecord->venuePostal.' '.$dc->activeRecord->venueCity;
         }
 
-        if (($strCoords = $this->generateCoordsFromAddress($strAddress, $dc->activeRecord->venueCountry ?: 'de')) !== false)
-        {
+        if (false !== ($strCoords = $this->generateCoordsFromAddress($strAddress, $dc->activeRecord->venueCountry ?: 'de'))) {
             $varValue = $strCoords;
         }
 
         return $varValue;
     }
 
-
     /**
-     *
-     * Get geo coodinates for the arrival address
+     * Get geo coodinates for the arrival address.
      *
      * @param               $varValue
      * @param DataContainer $dc
      *
-     * @return String The coordinates
+     * @return string The coordinates
      */
     public function generateArrivalCoords($varValue, DataContainer $dc)
     {
-        if ($varValue != '')
-        {
+        if ('' !== $varValue) {
             return $varValue;
         }
 
         $strAddress = '';
 
-        if ($dc->activeRecord->arrivalStreet != '')
-        {
+        if ('' !== $dc->activeRecord->arrivalStreet) {
             $strAddress .= $dc->activeRecord->arrivalStreet;
         }
 
-        if ($dc->activeRecord->arrivalPostal != '' && $dc->activeRecord->arrivalCity)
-        {
-            $strAddress .= ($strAddress ? ',' : '') . $dc->activeRecord->arrivalPostal . ' ' . $dc->activeRecord->arrivalCity;
+        if ('' !== $dc->activeRecord->arrivalPostal && $dc->activeRecord->arrivalCity) {
+            $strAddress .= ($strAddress ? ',' : '').$dc->activeRecord->arrivalPostal.' '.$dc->activeRecord->arrivalCity;
         }
 
-        if (($strCoords = $this->generateCoordsFromAddress($strAddress, $dc->activeRecord->arrivalCountry ?: 'de')) !== false)
-        {
+        if (false !== ($strCoords = $this->generateCoordsFromAddress($strAddress, $dc->activeRecord->arrivalCountry ?: 'de'))) {
             $varValue = $strCoords;
         }
 
         return $varValue;
+    }
+
+    public static function formatCommaToDot($value)
+    {
+        return str_replace(',', '.', $value);
     }
 
     /**
@@ -109,18 +99,10 @@ class CallbackListener
      */
     private function generateCoordsFromAddress($strAddress, $strCountry)
     {
-
-        if (!in_array('dlh_geocode', $this->container->getParameter('kernel.bundles') ))
-        {
+        if (!in_array('dlh_geocode', $this->container->getParameter('kernel.bundles'), true)) {
             return false;
         }
 
         return GeoCode::getCoordinates($strAddress, $strCountry, 'de');
     }
-
-    public static function formatCommaToDot($value)
-    {
-        return str_replace(',', '.', $value);
-    }
-
 }
