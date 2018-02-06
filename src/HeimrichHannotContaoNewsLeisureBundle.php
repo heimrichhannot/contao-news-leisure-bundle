@@ -13,7 +13,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class HeimrichHannotContaoNewsLeisureBundle extends Bundle
 {
-    protected function getContainerExtension()
+    public function getContainerExtension()
     {
         return new HeimrichHannotContaoNewsLeisureExtension();
     }

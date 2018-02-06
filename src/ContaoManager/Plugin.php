@@ -12,17 +12,17 @@ use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
-use HeimrichHannot\NewsBundle\HeimrichHannotContaoNewsBundle;
 use HeimrichHannot\NewsLeisureBundle\HeimrichHannotContaoNewsLeisureBundle;
 
 class Plugin implements BundlePluginInterface
 {
+    /**
+     * {@inheritdoc}
+     */
     public function getBundles(ParserInterface $parser)
     {
-        return BundleConfig::create(HeimrichHannotContaoNewsLeisureBundle::class)
-            ->setLoadAfter([
-                ContaoCoreBundle::class,
-                HeimrichHannotContaoNewsBundle::class,
-            ]);
+        return [
+            BundleConfig::create(HeimrichHannotContaoNewsLeisureBundle::class)->setLoadAfter([ContaoCoreBundle::class]),
+        ];
     }
 }
