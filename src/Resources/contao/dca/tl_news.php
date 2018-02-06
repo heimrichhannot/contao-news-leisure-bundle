@@ -11,6 +11,9 @@
 
 $dc = &$GLOBALS['TL_DCA']['tl_news'];
 
+$leisurePalette = '{venue_legend:hide},addVenues,addArrivalInfo;{touristInfo_legend:hide},addTouristInfo;{trailInfo_legend:hide},addTrailInfo;{openingHours_legend:hide},addOpeningHours;{ticketprice_legend:hide},addTicketPrice;';
+$leisureStagePalette = '{venue_legend:hide},addVenues;{trailInfo_legend:hide},addTrailInfo;';
+
 
 /**
  * Selectors
@@ -32,14 +35,8 @@ $dc['palettes']['__selector__'][] = 'addTrailInfoKmlData';
 /**
  * Palettes
  */
-$strLeisureTipFieldset        =
-    '{venue_legend:hide},addVenues,addArrivalInfo;{touristInfo_legend:hide},addTouristInfo;{trailInfo_legend:hide},addTrailInfo;{openingHours_legend:hide},addOpeningHours;{ticketprice_legend:hide},addTicketPrice;';
-$dc['palettes']['leisuretip'] = $dc['palettes']['default'];
-$dc['palettes']['leisuretip'] = str_replace('addImage;', 'addImage;' . $strLeisureTipFieldset, $dc['palettes']['leisuretip']);
-
-$strLeisureTipStageFieldset         = '{venue_legend:hide},addVenues;{trailInfo_legend:hide},addTrailInfo;';
-$dc['palettes']['leisuretip_stage'] = $dc['palettes']['default'];
-$dc['palettes']['leisuretip_stage'] = str_replace('addImage;', 'addImage;' . $strLeisureTipStageFieldset, $dc['palettes']['leisuretip_stage']);
+$dc['palettes']['leisuretip'] = str_replace('addImage;', 'addImage;'.$leisurePalette, $dc['palettes']['default']);
+$dc['palettes']['leisuretip_stage'] = str_replace('addImage;', 'addImage;'.$leisureStagePalette, $dc['palettes']['default']);
 
 /**
  * Subpalettes
