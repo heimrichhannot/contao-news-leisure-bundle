@@ -36,7 +36,9 @@ $dc['palettes']['__selector__'][] = 'addTrailInfoKmlData';
  * Palettes
  */
 $dc['palettes']['leisuretip'] = str_replace('addImage;', 'addImage;'.$leisurePalette, $dc['palettes']['default']);
+$dc['palettes']['leisuretip'] = str_replace('author;', 'author,categories;', $dc['palettes']['leisuretip']);
 $dc['palettes']['leisuretip_stage'] = str_replace('addImage;', 'addImage;'.$leisureStagePalette, $dc['palettes']['default']);
+$dc['palettes']['leisuretip_stage'] = str_replace('author;', 'author,categories;', $dc['palettes']['leisuretip_stage']);
 
 /**
  * Subpalettes
