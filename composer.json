@@ -6,7 +6,7 @@
   "require": {
     "php": "~7.0",
     "contao/core-bundle":"~4.4",
-    "heimrichhannot/contao-news-bundle": "^2.1",
+    "heimrichhannot/contao-news-bundle": "dev-filter-list-reader",
     "heimrichhannot/contao-fieldpalette": "^1.4"
   },
   "require-dev": {

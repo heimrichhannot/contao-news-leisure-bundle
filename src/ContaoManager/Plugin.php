@@ -12,10 +12,13 @@ use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
+use Contao\ManagerPlugin\Config\ContainerBuilder;
+use Contao\ManagerPlugin\Config\ExtensionPluginInterface;
 use Contao\NewsBundle\ContaoNewsBundle;
 use HeimrichHannot\NewsLeisureBundle\HeimrichHannotContaoNewsLeisureBundle;
+use HeimrichHannot\UtilsBundle\Container\ContainerUtil;
 
-class Plugin implements BundlePluginInterface
+class Plugin implements BundlePluginInterface, ExtensionPluginInterface
 {
     /**
      * {@inheritdoc}
@@ -25,5 +28,27 @@ class Plugin implements BundlePluginInterface
         return [
             BundleConfig::create(HeimrichHannotContaoNewsLeisureBundle::class)->setLoadAfter([ContaoCoreBundle::class, ContaoNewsBundle::class]),
         ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getExtensionConfig($extensionName, array $extensionConfigs, ContainerBuilder $container)
+    {
+        $extensionConfigs = ContainerUtil::mergeConfigFile(
+            'huh_list',
+            $extensionName,
+            $extensionConfigs,
+            __DIR__ . '/../Resources/config/config_list.yml'
+        );
+
+        $extensionConfigs = ContainerUtil::mergeConfigFile(
+            'huh_reader',
+            $extensionName,
+            $extensionConfigs,
+            __DIR__ . '/../Resources/config/config_reader.yml'
+        );
+
+        return $extensionConfigs;
     }
 }
