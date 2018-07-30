@@ -1,4 +1,4 @@
 huh:
     reader:
         items:
-            - { name: news_leisure, class: HeimrichHannot\NewsLeisureBundle\Item\DefaultItem }
+            - { name: news_leisure, class: HeimrichHannot\NewsLeisureBundle\Item\DefaultReaderItem }
