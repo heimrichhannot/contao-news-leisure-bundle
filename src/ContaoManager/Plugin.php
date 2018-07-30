@@ -39,14 +39,14 @@ class Plugin implements BundlePluginInterface, ExtensionPluginInterface
             'huh_list',
             $extensionName,
             $extensionConfigs,
-            __DIR__ . '/../Resources/config/config_list.yml'
+            __DIR__.'/../Resources/config/config_list.yml'
         );
 
         $extensionConfigs = ContainerUtil::mergeConfigFile(
             'huh_reader',
             $extensionName,
             $extensionConfigs,
-            __DIR__ . '/../Resources/config/config_reader.yml'
+            __DIR__.'/../Resources/config/config_reader.yml'
         );
 
         return $extensionConfigs;
