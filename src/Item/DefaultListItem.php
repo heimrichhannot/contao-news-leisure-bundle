@@ -8,9 +8,7 @@
 
 namespace HeimrichHannot\NewsLeisureBundle\Item;
 
-class DefaultItem extends \HeimrichHannot\NewsBundle\Item\DefaultItem
+class DefaultListItem extends \HeimrichHannot\NewsBundle\Item\DefaultListItem
 {
     use NewsLeisureItemTrait;
-
-
 }
