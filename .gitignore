@@ -11,5 +11,5 @@ nbproject/
 .settings/
 
 # composer
-vendor
+/vendor
 composer.phar

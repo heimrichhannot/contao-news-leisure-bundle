@@ -8,22 +8,23 @@
 
 namespace HeimrichHannot\NewsLeisureBundle\Item;
 
-use HeimrichHannot\FieldPalette\FieldPaletteModel;
+use HeimrichHannot\FieldpaletteBundle\Model\FieldPaletteModel;
 
 trait NewsLeisureItemTrait
 {
     /**
-     * Get a list of venues
+     * Get a list of venues.
+     *
      * @return array|null
      */
     public function getVenues(): ?array
     {
-        if (false === (bool)$this->addVenues) {
+        if (false === (bool) $this->addVenues) {
             return null;
         }
 
         /**
-         * @var FieldPaletteModel $fieldPaletteModel
+         * @var FieldPaletteModel
          */
         $fieldPaletteModel = $this->getManager()->getFramework()->getAdapter(FieldPaletteModel::class);
 

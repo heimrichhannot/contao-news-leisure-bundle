@@ -13,8 +13,7 @@ $finder = PhpCsFixer\Finder::create()
     ->exclude('Fixtures')
     ->in([__DIR__.'/src', __DIR__.'/tests'])
     ->exclude('vendor')
-    ->exclude('components')
-    ->in(__DIR__)
+    ->in([__DIR__])
 ;
 
 return PhpCsFixer\Config::create()
@@ -22,14 +21,14 @@ return PhpCsFixer\Config::create()
         '@Symfony' => true,
         '@Symfony:risky' => true,
         'psr0' => false,
-        'strict_comparison' => true,
-        'strict_param' => true,
+        'strict_comparison' => false,
+        'strict_param' => false,
         'array_syntax' => ['syntax' => 'short'],
         'heredoc_to_nowdoc' => true,
         'header_comment' => ['header' => $header],
         'ordered_imports' => true,
         'ordered_class_elements' => true,
-        'php_unit_strict' => true,
+        'php_unit_strict' => false,
         'phpdoc_order' => true,
         'no_useless_return' => true,
         'no_useless_else' => true,
@@ -43,4 +42,5 @@ return PhpCsFixer\Config::create()
     ->setFinder($finder)
     ->setRiskyAllowed(true)
     ->setUsingCache(false)
-    ;
+;
+
