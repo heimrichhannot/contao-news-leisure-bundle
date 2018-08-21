@@ -8,7 +8,7 @@
 
 namespace HeimrichHannot\NewsLeisureBundle\Item;
 
-use HeimrichHannot\FieldpaletteBundle\Model\FieldPaletteModel;
+use Contao\System;
 
 trait NewsLeisureItemTrait
 {
@@ -23,12 +23,7 @@ trait NewsLeisureItemTrait
             return null;
         }
 
-        /**
-         * @var FieldPaletteModel
-         */
-        $fieldPaletteModel = $this->getManager()->getFramework()->getAdapter(FieldPaletteModel::class);
-
-        if (null === ($venues = $fieldPaletteModel->findPublishedByPidAndTableAndField($this->id, $this->getDataContainer(), 'venues'))) {
+        if (null === ($venues = System::getContainer()->get('huh.fieldpalette.manager')->getInstance()->findPublishedByPidAndTableAndField($this->id, $this->getDataContainer(), 'venues'))) {
             return null;
         }
 
