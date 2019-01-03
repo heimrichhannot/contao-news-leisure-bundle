@@ -136,7 +136,7 @@ $arrFields = array(
                     'exclude'       => true,
                     'search'        => true,
                     'inputType'     => 'text',
-                    'eval'          => array('maxlength' => 64),
+                    'eval'          => array('maxlength' => 64, 'tl_class' => 'w50 clr'),
                     'sql'           => "varchar(64) NOT NULL default ''",
                     'save_callback' => array(
                         array('huh.news_leisure.listener.callback', 'generateVenueCoords'),
