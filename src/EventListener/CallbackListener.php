@@ -9,8 +9,11 @@
 namespace HeimrichHannot\NewsLeisureBundle\EventListener;
 
 use Contao\DataContainer;
-use delahaye\GeoCode;
+use Contao\System;
+use Contao\Config;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use HeimrichHannot\UtilsBundle\HeimrichHannotContaoUtilsBundle;
+use HeimrichHannot\UtilsBundle\Location\LocationUtil;
 
 class CallbackListener
 {
@@ -99,10 +102,12 @@ class CallbackListener
      */
     private function generateCoordsFromAddress($strAddress, $strCountry)
     {
-        if (!in_array('dlh_geocode', $this->container->getParameter('kernel.bundles'), true)) {
+	if (!in_array(HeimrichHannotContaoUtilsBundle::class, $this->container->getParameter('kernel.bundles'), true)) {
             return false;
         }
+        
+        $coords = System::getContainer()->get('huh.utils.location')->computeCoordinatesByString($strAddress, Config::get('googlemaps_apiKey'));
 
-        return GeoCode::getCoordinates($strAddress, $strCountry, 'de');
+        return implode(',',$coords);
     }
 }

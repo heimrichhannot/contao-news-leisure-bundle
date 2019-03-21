@@ -7,7 +7,8 @@
     "php": "~7.0",
     "contao/core-bundle":"~4.4",
     "heimrichhannot/contao-news-bundle": "^2.1",
-    "heimrichhannot/contao-fieldpalette": "^1.4"
+    "heimrichhannot/contao-fieldpalette": "^1.4",
+    "heimrichhannot/contao-utils-bundle": "^2.84"
   },
   "require-dev": {
     "contao/manager-plugin": "^2.0",
