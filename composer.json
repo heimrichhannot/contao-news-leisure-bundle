@@ -8,7 +8,8 @@
     "contao/core-bundle":"~4.4",
     "heimrichhannot/contao-news-bundle": "^2.1",
     "heimrichhannot/contao-fieldpalette": "^1.4",
-    "heimrichhannot/contao-utils-bundle": "^2.84"
+    "heimrichhannot/contao-utils-bundle": "^2.84",
+    "heimrichhannot/contao-google-maps-bundle": "^0.3"
   },
   "require-dev": {
     "contao/manager-plugin": "^2.0",

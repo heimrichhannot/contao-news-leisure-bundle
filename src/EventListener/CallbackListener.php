@@ -106,7 +106,7 @@ class CallbackListener
             return false;
         }
         
-        $coords = System::getContainer()->get('huh.utils.location')->computeCoordinatesByString($strAddress, Config::get('googlemaps_apiKey'));
+        $coords = $this->container->get('huh.utils.location')->computeCoordinatesByString($strAddress, Config::get('googlemaps_apiKey'));
 
         return implode(',',$coords);
     }
