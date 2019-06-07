@@ -1,0 +1,7 @@
+services:
+  _defaults:
+    public: true
+    autowire: true
+
+  huh.choices.data_container.filter_config_element_container:
+    class: HeimrichHannot\NewsLeisureBundle\DataContainer\FilterConfigElementContainer
