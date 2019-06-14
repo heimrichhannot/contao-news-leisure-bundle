@@ -8,13 +8,6 @@
 
 namespace HeimrichHannot\NewsLeisureBundle;
 
-use HeimrichHannot\NewsLeisureBundle\DependencyInjection\HeimrichHannotContaoNewsLeisureExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class HeimrichHannotContaoNewsLeisureBundle extends Bundle
-{
-    public function getContainerExtension()
-    {
-        return new HeimrichHannotContaoNewsLeisureExtension();
-    }
-}
+class HeimrichHannotContaoNewsLeisureBundle extends Bundle {}

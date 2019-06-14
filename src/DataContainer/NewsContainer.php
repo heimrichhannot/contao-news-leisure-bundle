@@ -1,27 +1,36 @@
 <?php
 
-/*
- * Copyright (c) 2018 Heimrich & Hannot GmbH
- *
- * @license LGPL-3.0-or-later
- */
-
-namespace HeimrichHannot\NewsLeisureBundle\EventListener;
+namespace HeimrichHannot\NewsLeisureBundle\DataContainer;
 
 use Contao\DataContainer;
+use Contao\NewsModel;
 use delahaye\GeoCode;
+use HeimrichHannot\RequestBundle\Component\HttpFoundation\Request;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class CallbackListener
+class NewsContainer
 {
     /**
      * @var ContainerInterface
      */
     private $container;
 
+    /**
+     * @var Request
+     */
+    protected $request;
+
+    /**
+     * @var NewsModel
+     */
+    protected $newsModelAdapter;
+
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
+
+        $this->request          = $this->container->get('huh.request');
+        $this->newsModelAdapter = $this->container->get('contao.framework')->getAdapter(NewsModel::class);
     }
 
     /**
@@ -45,7 +54,7 @@ class CallbackListener
         }
 
         if ('' !== $dc->activeRecord->venuePostal && $dc->activeRecord->venueCity) {
-            $strAddress .= ($strAddress ? ',' : '').$dc->activeRecord->venuePostal.' '.$dc->activeRecord->venueCity;
+            $strAddress .= ($strAddress ? ',' : '') . $dc->activeRecord->venuePostal . ' ' . $dc->activeRecord->venueCity;
         }
 
         if (false !== ($strCoords = $this->generateCoordsFromAddress($strAddress, $dc->activeRecord->venueCountry ?: 'de'))) {
@@ -76,7 +85,7 @@ class CallbackListener
         }
 
         if ('' !== $dc->activeRecord->arrivalPostal && $dc->activeRecord->arrivalCity) {
-            $strAddress .= ($strAddress ? ',' : '').$dc->activeRecord->arrivalPostal.' '.$dc->activeRecord->arrivalCity;
+            $strAddress .= ($strAddress ? ',' : '') . $dc->activeRecord->arrivalPostal . ' ' . $dc->activeRecord->arrivalCity;
         }
 
         if (false !== ($strCoords = $this->generateCoordsFromAddress($strAddress, $dc->activeRecord->arrivalCountry ?: 'de'))) {

@@ -1,4 +1,1 @@
 services:
-  huh.news_leisure.listener.callback:
-    class: HeimrichHannot\NewsLeisureBundle\EventListener\CallbackListener
-    arguments: ["@service_container"]
