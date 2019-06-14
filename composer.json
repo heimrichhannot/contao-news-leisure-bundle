@@ -6,10 +6,9 @@
   "require": {
     "php": "~7.0",
     "contao/core-bundle":"~4.4",
-    "heimrichhannot/contao-news-bundle": "^2.1",
-    "heimrichhannot/contao-fieldpalette": "^1.4",
-    "heimrichhannot/contao-utils-bundle": "^2.84",
-    "heimrichhannot/contao-google-maps-bundle": "^0.3"
+    "heimrichhannot/contao-news-bundle": "^3.0-beta",
+    "heimrichhannot/contao-fieldpalette-bundle": "0.*||1.*",
+    "heimrichhannot/contao-google-maps-bundle": "^1.2"
   },
   "require-dev": {
     "contao/manager-plugin": "^2.0",
