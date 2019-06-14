@@ -1,0 +1,7 @@
+services:
+  _defaults:
+    public: true
+    autowire: true
+
+  huh.news_leisure.data_container.news_container:
+    class: HeimrichHannot\NewsLeisureBundle\DataContainer\NewsContainer

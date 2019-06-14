@@ -86,26 +86,26 @@ $lang['ticketPriceText'][0] = 'Ticketpreise';
 $lang['ticketPriceText'][1] = 'Geben Sie die Ticketpreise an.';
 
 // trail info
-$lang['addTrailInfo']					= array('Tour-Information hinzufügen', 'Dem Beitrag Angaben zur Tour-Information hinzufügen');
-$lang['addTrailInfoDistance']			= array('Länge hinzufügen', 'Dem Beitrag Angaben zur Länge hinzufügen');
-$lang['trailInfoDistanceMin']			= array('Minimale Länge', 'Geben Sie die minimale Länge der Tour (in Kilometer) an.');
-$lang['trailInfoDistanceMax']			= array('Maximale Länge', 'Geben Sie die maximale Länge der Tour (in Kilometer) an.');
-$lang['addTrailInfoDuration']			= array('Dauer hinzufügen', 'Dem Beitrag Angaben zur Dauer hinzufügen');
-$lang['trailInfoDurationMin']			= array('Minimale Dauer', 'Geben Sie die minimale Dauer der Tour (in Stunden) an.');
-$lang['trailInfoDurationMax']			= array('Maximale Dauer', 'Geben Sie die maximale Dauer der Tour (in Stunden) an.');
-$lang['addTrailInfoAltitude']			= array('Höhenmeter hinzufügen', 'Dem Beitrag Angaben zur Höhe hinzufügen');
-$lang['trailInfoAltitudeMin']			= array('Minimale Höhe', 'Geben Sie die minimale Höhe der Tour (in Meter) an.');
-$lang['trailInfoAltitudeMax']			= array('Maximale Höhe', 'Geben Sie die maximale Höhe der Tour (in Meter) an.');
-$lang['addTrailInfoDifficulty']		= array('Anspruch hinzufügen', 'Dem Beitrag Angaben zum Anspruch hinzufügen');
-$lang['trailInfoDifficultyMin']		= array('Minimaler Anspruch', 'Geben Sie den minimalen Anspruch der Tour an.');
-$lang['trailInfoDifficultyMax']		= array('Maximaler Anspruch', 'Geben Sie den maximalen Anspruch der Tour an.');
-$lang['trailInfoDifficulties']			= array('leicht', 'mittel', 'mittel-schwer', 'schwer');
-$lang['addTrailInfoStartDestination']	= array('Start und Ziel hinzufügen', 'Dem Beitrag Angaben zum Start und Ziel hinzufügen');
-$lang['trailInfoStart']				= array('Start der Tour', 'Geben Sie den Start der Tour an.');
-$lang['trailInfoDestination']			= array('Ziel der Tour', 'Geben Sie das Ziel der Tour an.');
-$lang['addTrailInfoKmlData']			= array('KML-Daten hinzufügen', 'Dem Beitrag eine Google Maps hinzufügen, auf der die KML-Daten angezeigt werden.');
-$lang['trailInfoKmlData']				= array('KML-Datei, Wählen Sie die KML-Datei aus.');
-$lang['trailInfoShowElevationProfile']	= array('Höhenprofil anzeigen', 'Geben Sie an, ob ein Höhenprofil der Route angezeigt werden soll.');
+$lang['addTrailInfo']					= ['Tour-Information hinzufügen', 'Dem Beitrag Angaben zur Tour-Information hinzufügen'];
+$lang['addTrailInfoDistance']			= ['Länge hinzufügen', 'Dem Beitrag Angaben zur Länge hinzufügen'];
+$lang['trailInfoDistanceMin']			= ['Minimale Länge', 'Geben Sie die minimale Länge der Tour (in Kilometer) an.'];
+$lang['trailInfoDistanceMax']			= ['Maximale Länge', 'Geben Sie die maximale Länge der Tour (in Kilometer) an.'];
+$lang['addTrailInfoDuration']			= ['Dauer hinzufügen', 'Dem Beitrag Angaben zur Dauer hinzufügen'];
+$lang['trailInfoDurationMin']			= ['Minimale Dauer', 'Geben Sie die minimale Dauer der Tour (in Stunden) an.'];
+$lang['trailInfoDurationMax']			= ['Maximale Dauer', 'Geben Sie die maximale Dauer der Tour (in Stunden) an.'];
+$lang['addTrailInfoAltitude']			= ['Höhenmeter hinzufügen', 'Dem Beitrag Angaben zur Höhe hinzufügen'];
+$lang['trailInfoAltitudeMin']			= ['Minimale Höhe', 'Geben Sie die minimale Höhe der Tour (in Meter) an.'];
+$lang['trailInfoAltitudeMax']			= ['Maximale Höhe', 'Geben Sie die maximale Höhe der Tour (in Meter) an.'];
+$lang['addTrailInfoDifficulty']		= ['Anspruch hinzufügen', 'Dem Beitrag Angaben zum Anspruch hinzufügen'];
+$lang['trailInfoDifficultyMin']		= ['Minimaler Anspruch', 'Geben Sie den minimalen Anspruch der Tour an.'];
+$lang['trailInfoDifficultyMax']		= ['Maximaler Anspruch', 'Geben Sie den maximalen Anspruch der Tour an.'];
+$lang['trailInfoDifficulties']			= ['leicht', 'mittel', 'mittel-schwer', 'schwer'];
+$lang['addTrailInfoStartDestination']	= ['Start und Ziel hinzufügen', 'Dem Beitrag Angaben zum Start und Ziel hinzufügen'];
+$lang['trailInfoStart']				= ['Start der Tour', 'Geben Sie den Start der Tour an.'];
+$lang['trailInfoDestination']			= ['Ziel der Tour', 'Geben Sie das Ziel der Tour an.'];
+$lang['addTrailInfoKmlData']			= ['KML-Daten hinzufügen', 'Dem Beitrag eine Google Maps hinzufügen, auf der die KML-Daten angezeigt werden.'];
+$lang['trailInfoKmlData']				= ['KML-Datei, Wählen Sie die KML-Datei aus.'];
+$lang['trailInfoShowElevationProfile']	= ['Höhenprofil anzeigen', 'Geben Sie an, ob ein Höhenprofil der Route angezeigt werden soll.'];
 
 
 /**

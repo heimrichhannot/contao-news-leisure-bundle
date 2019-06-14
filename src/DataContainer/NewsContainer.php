@@ -1,34 +1,40 @@
 <?php
 
-/*
- * Copyright (c) 2018 Heimrich & Hannot GmbH
- *
- * @license LGPL-3.0-or-later
- */
+namespace HeimrichHannot\NewsLeisureBundle\DataContainer;
 
-namespace HeimrichHannot\NewsLeisureBundle\EventListener;
-
-use Contao\DataContainer;
-use Contao\System;
 use Contao\Config;
+use Contao\DataContainer;
+use Contao\NewsModel;
+use HeimrichHannot\RequestBundle\Component\HttpFoundation\Request;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use HeimrichHannot\UtilsBundle\HeimrichHannotContaoUtilsBundle;
-use HeimrichHannot\UtilsBundle\Location\LocationUtil;
 
-class CallbackListener
+class NewsContainer
 {
     /**
      * @var ContainerInterface
      */
     private $container;
 
+    /**
+     * @var Request
+     */
+    protected $request;
+
+    /**
+     * @var NewsModel
+     */
+    protected $newsModelAdapter;
+
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
+
+        $this->request          = $this->container->get('huh.request');
+        $this->newsModelAdapter = $this->container->get('contao.framework')->getAdapter(NewsModel::class);
     }
 
     /**
-     * Get geo coodinates for the venue address.
+     * Get geo coordinates for the venue address.
      *
      * @param               $varValue
      * @param DataContainer $dc
@@ -102,10 +108,6 @@ class CallbackListener
      */
     private function generateCoordsFromAddress($strAddress, $strCountry)
     {
-	if (!in_array(HeimrichHannotContaoUtilsBundle::class, $this->container->getParameter('kernel.bundles'), true)) {
-            return false;
-        }
-        
         $coords = $this->container->get('huh.utils.location')->computeCoordinatesByString($strAddress, Config::get('googlemaps_apiKey'));
 
         return implode(',',$coords);
