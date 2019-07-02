@@ -16,6 +16,8 @@ use Contao\ManagerPlugin\Config\ConfigPluginInterface;
 use Contao\ManagerPlugin\Config\ContainerBuilder;
 use Contao\ManagerPlugin\Config\ExtensionPluginInterface;
 use Contao\NewsBundle\ContaoNewsBundle;
+use Contao\System;
+use HeimrichHannot\GoogleChartsBundle\ContaoGoogleChartsBundle;
 use HeimrichHannot\NewsBundle\HeimrichHannotContaoNewsBundle;
 use HeimrichHannot\NewsLeisureBundle\HeimrichHannotContaoNewsLeisureBundle;
 use HeimrichHannot\UtilsBundle\Container\ContainerUtil;
@@ -28,8 +30,14 @@ class Plugin implements BundlePluginInterface, ExtensionPluginInterface, ConfigP
      */
     public function getBundles(ParserInterface $parser)
     {
+        $loadAfter = [ContaoCoreBundle::class, ContaoNewsBundle::class, HeimrichHannotContaoNewsBundle::class];
+
+        if(class_exists(ContaoGoogleChartsBundle::class)) {
+            $loadAfter[] = ContaoGoogleChartsBundle::class;
+        }
+
         return [
-            BundleConfig::create(HeimrichHannotContaoNewsLeisureBundle::class)->setLoadAfter([ContaoCoreBundle::class, ContaoNewsBundle::class, HeimrichHannotContaoNewsBundle::class]),
+            BundleConfig::create(HeimrichHannotContaoNewsLeisureBundle::class)->setLoadAfter($loadAfter),
         ];
     }
 
@@ -37,6 +45,7 @@ class Plugin implements BundlePluginInterface, ExtensionPluginInterface, ConfigP
     {
         $loader->load('@HeimrichHannotContaoNewsLeisureBundle/Resources/config/services.yml');
         $loader->load('@HeimrichHannotContaoNewsLeisureBundle/Resources/config/datacontainers.yml');
+        $loader->load('@HeimrichHannotContaoNewsLeisureBundle/Resources/config/listener.yml');
     }
 
     /**
@@ -48,14 +57,14 @@ class Plugin implements BundlePluginInterface, ExtensionPluginInterface, ConfigP
             'huh_list',
             $extensionName,
             $extensionConfigs,
-            __DIR__.'/../Resources/config/config_list.yml'
+            __DIR__ . '/../Resources/config/config_list.yml'
         );
 
         $extensionConfigs = ContainerUtil::mergeConfigFile(
             'huh_reader',
             $extensionName,
             $extensionConfigs,
-            __DIR__.'/../Resources/config/config_reader.yml'
+            __DIR__ . '/../Resources/config/config_reader.yml'
         );
 
         return $extensionConfigs;

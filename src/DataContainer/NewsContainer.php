@@ -5,11 +5,14 @@ namespace HeimrichHannot\NewsLeisureBundle\DataContainer;
 use Contao\Config;
 use Contao\DataContainer;
 use Contao\NewsModel;
+use Contao\System;
 use HeimrichHannot\RequestBundle\Component\HttpFoundation\Request;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class NewsContainer
 {
+    const CHART_DATA_TYPE_KML = 'kml';
+
     /**
      * @var ContainerInterface
      */
@@ -112,4 +115,5 @@ class NewsContainer
 
         return implode(',',$coords);
     }
+
 }

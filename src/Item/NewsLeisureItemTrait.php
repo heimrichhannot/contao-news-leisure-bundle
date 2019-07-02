@@ -9,6 +9,7 @@
 namespace HeimrichHannot\NewsLeisureBundle\Item;
 
 use Contao\System;
+use HeimrichHannot\GoogleChartsBundle\DataContainer\GoogleChartsContainer;
 
 trait NewsLeisureItemTrait
 {
@@ -29,4 +30,5 @@ trait NewsLeisureItemTrait
 
         return $venues->fetchAll();
     }
+
 }
