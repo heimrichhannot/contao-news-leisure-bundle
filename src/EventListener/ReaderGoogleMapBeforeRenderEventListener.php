@@ -4,6 +4,7 @@
 namespace HeimrichHannot\NewsLeisureBundle\EventListener;
 
 
+use Contao\Environment;
 use Contao\System;
 use HeimrichHannot\GoogleMapsBundle\Event\ReaderGoogleMapBeforeRenderEvent;
 use Http\Adapter\Guzzle6\Client;
@@ -19,15 +20,15 @@ class ReaderGoogleMapBeforeRenderEventListener
         $map       = $event->getMap();
         $container = System::getContainer();
 
-        if(!$item->getRawValue('addTrailInfoKmlData')) {
+        if (!$item->getRawValue('addTrailInfoKmlData')) {
             return;
         }
 
-        if(null === ($kml = $container->get('huh.utils.file')->getFileFromUuid($item->getRawValue('trailInfoKmlData')))) {
+        if (null === ($kml = $container->get('huh.utils.file')->getFileFromUuid($item->getRawValue('trailInfoKmlData')))) {
             return;
         }
 
-        $kmlLayer = new KmlLayer(TL_ROOT . DIRECTORY_SEPARATOR . $kml->path);
+        $kmlLayer = new KmlLayer(Environment::get('url') . '/' . $kml->path);
 
         $map->getLayerManager()->addKmlLayer($kmlLayer);
     }
