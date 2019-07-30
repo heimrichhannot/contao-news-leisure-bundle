@@ -17,7 +17,6 @@ use Contao\ManagerPlugin\Config\ContainerBuilder;
 use Contao\ManagerPlugin\Config\ExtensionPluginInterface;
 use Contao\NewsBundle\ContaoNewsBundle;
 use Contao\System;
-use HeimrichHannot\GoogleChartsBundle\ContaoGoogleChartsBundle;
 use HeimrichHannot\NewsBundle\HeimrichHannotContaoNewsBundle;
 use HeimrichHannot\NewsLeisureBundle\HeimrichHannotContaoNewsLeisureBundle;
 use HeimrichHannot\UtilsBundle\Container\ContainerUtil;
@@ -32,8 +31,8 @@ class Plugin implements BundlePluginInterface, ExtensionPluginInterface, ConfigP
     {
         $loadAfter = [ContaoCoreBundle::class, ContaoNewsBundle::class, HeimrichHannotContaoNewsBundle::class];
 
-        if(class_exists(ContaoGoogleChartsBundle::class)) {
-            $loadAfter[] = ContaoGoogleChartsBundle::class;
+        if(class_exists('HeimrichHannot\GoogleChartsBundle\ContaoGoogleChartsBundle')) {
+            $loadAfter[] = 'HeimrichHannot\GoogleChartsBundle\ContaoGoogleChartsBundle';
         }
 
         return [
