@@ -105,6 +105,8 @@ $lang['trailInfoStart']				= ['Start der Tour', 'Geben Sie den Start der Tour an
 $lang['trailInfoDestination']			= ['Ziel der Tour', 'Geben Sie das Ziel der Tour an.'];
 $lang['addTrailInfoKmlData']			= ['KML-Daten hinzufügen', 'Dem Beitrag eine Google Maps hinzufügen, auf der die KML-Daten angezeigt werden.'];
 $lang['trailInfoKmlData']				= ['KML-Datei, Wählen Sie die KML-Datei aus.'];
+$lang['addTrailInfoGpxData']			= ['GPX-Daten hinzufügen', 'Dem Beitrag eine Google Maps hinzufügen, auf der die GPX-Daten angezeigt werden.'];
+$lang['trailInfoGpxData']				= ['GPX-Datei, Wählen Sie die GPX-Datei aus.'];
 $lang['trailInfoShowElevationProfile']	= ['Höhenprofil anzeigen', 'Geben Sie an, ob ein Höhenprofil der Route angezeigt werden soll.'];
 
 

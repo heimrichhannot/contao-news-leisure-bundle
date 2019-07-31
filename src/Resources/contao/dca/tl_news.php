@@ -30,7 +30,7 @@ $dc['palettes']['__selector__'][] = 'addTrailInfoAltitude';
 $dc['palettes']['__selector__'][] = 'addTrailInfoDifficulty';
 $dc['palettes']['__selector__'][] = 'addTrailInfoStartDestination';
 $dc['palettes']['__selector__'][] = 'addTrailInfoKmlData';
-
+$dc['palettes']['__selector__'][] = 'addTrailInfoGpxData';
 
 /**
  * Palettes
@@ -47,7 +47,7 @@ $dc['subpalettes']['addVenues']                    = 'venues';
 $dc['subpalettes']['addArrivalInfo']               = 'arrivalName,arrivalStreet,arrivalPostal,arrivalCity,arrivalCountry,arrivalSingleCoords,arrivalText';
 $dc['subpalettes']['addTouristInfo']               = 'touristInfoName,touristInfoPhone,touristInfoFax,touristInfoEmail,touristInfoWebsite,touristInfoText';
 $dc['subpalettes']['addTrailInfo']                 =
-    'addTrailInfoDistance,addTrailInfoDuration,addTrailInfoAltitude,addTrailInfoDifficulty,addTrailInfoStartDestination,addTrailInfoKmlData';
+    'addTrailInfoDistance,addTrailInfoDuration,addTrailInfoAltitude,addTrailInfoDifficulty,addTrailInfoStartDestination,trailInfoShowElevationProfile,addTrailInfoKmlData,addTrailInfoGpxData';
 $dc['subpalettes']['addOpeningHours']              = 'openingHoursText';
 $dc['subpalettes']['addTicketPrice']               = 'ticketPriceText';
 $dc['subpalettes']['addTrailInfoDistance']         = 'trailInfoDistanceMin,trailInfoDistanceMax';
@@ -55,7 +55,8 @@ $dc['subpalettes']['addTrailInfoDuration']         = 'trailInfoDurationMin,trail
 $dc['subpalettes']['addTrailInfoAltitude']         = 'trailInfoAltitudeMin,trailInfoAltitudeMax';
 $dc['subpalettes']['addTrailInfoDifficulty']       = 'trailInfoDifficultyMin,trailInfoDifficultyMax';
 $dc['subpalettes']['addTrailInfoStartDestination'] = 'trailInfoStart,trailInfoDestination';
-$dc['subpalettes']['addTrailInfoKmlData']          = 'trailInfoKmlData,trailInfoShowElevationProfile';
+$dc['subpalettes']['addTrailInfoKmlData']          = 'trailInfoKmlData';
+$dc['subpalettes']['addTrailInfoGpxData']          = 'trailInfoGpxData';
 
 
 /**
@@ -485,7 +486,7 @@ $arrFields = [
         'label'     => &$GLOBALS['TL_LANG']['tl_news']['addTrailInfoKmlData'],
         'exclude'   => true,
         'inputType' => 'checkbox',
-        'eval'      => ['submitOnChange' => true, 'tl_class' => 'long'],
+        'eval'      => ['submitOnChange' => true, 'tl_class' => 'w50 clr'],
         'sql'       => "char(1) NOT NULL default ''",
     ],
     'trailInfoKmlData'              => [
@@ -495,6 +496,27 @@ $arrFields = [
         'inputType' => 'fileTree',
         'eval'      => [
             'extensions' => 'kml',
+            'fieldType'  => 'radio',
+            'files'      => true,
+            'mandatory'  => true,
+            'tl_class'   => 'w50',
+        ],
+        'sql'       => "blob NULL",
+    ],
+    'addTrailInfoGpxData'           => [
+        'label'     => &$GLOBALS['TL_LANG']['tl_news']['addTrailInfoGpxData'],
+        'exclude'   => true,
+        'inputType' => 'checkbox',
+        'eval'      => ['submitOnChange' => true, 'tl_class' => 'w50'],
+        'sql'       => "char(1) NOT NULL default ''",
+    ],
+    'trailInfoGpxData'              => [
+        'label'     => &$GLOBALS['TL_LANG']['tl_news']['trailInfoGpxData'],
+        'exclude'   => true,
+        'search'    => true,
+        'inputType' => 'fileTree',
+        'eval'      => [
+            'extensions' => 'gpx',
             'fieldType'  => 'radio',
             'files'      => true,
             'mandatory'  => true,
