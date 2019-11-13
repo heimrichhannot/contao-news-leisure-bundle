@@ -5,3 +5,4 @@ services:
 
   huh.news_leisure.data_container.news_container:
     class: HeimrichHannot\NewsLeisureBundle\DataContainer\NewsContainer
+  HeimrichHannot\NewsLeisureBundle\DataContainer\NewsContainer: '@huh.news_leisure.data_container.news_container'

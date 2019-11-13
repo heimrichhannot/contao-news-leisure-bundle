@@ -7,10 +7,7 @@ namespace HeimrichHannot\NewsLeisureBundle\EventListener;
 use Contao\Environment;
 use Contao\System;
 use HeimrichHannot\GoogleMapsBundle\Event\ReaderGoogleMapBeforeRenderEvent;
-use Http\Adapter\Guzzle6\Client;
-use Http\Message\MessageFactory\GuzzleMessageFactory;
 use Ivory\GoogleMap\Layer\KmlLayer;
-use Ivory\GoogleMap\Service\Elevation\ElevationService;
 
 class ReaderGoogleMapBeforeRenderEventListener
 {

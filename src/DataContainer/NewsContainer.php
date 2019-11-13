@@ -5,7 +5,6 @@ namespace HeimrichHannot\NewsLeisureBundle\DataContainer;
 use Contao\Config;
 use Contao\DataContainer;
 use Contao\NewsModel;
-use Contao\System;
 use HeimrichHannot\RequestBundle\Component\HttpFoundation\Request;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 

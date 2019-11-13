@@ -8,9 +8,9 @@
 
 namespace HeimrichHannot\NewsLeisureBundle\Item;
 
-use Contao\System;
+use HeimrichHannot\NewsListReaderBundle\Item\NewsReaderItem;
 
-class DefaultReaderItem extends \HeimrichHannot\NewsBundle\Item\DefaultReaderItem
+class NewsLeisureReaderItem extends NewsReaderItem
 {
     use NewsLeisureItemTrait;
 

@@ -6,9 +6,8 @@
   "require": {
     "php": "~7.0",
     "contao/core-bundle":"~4.4",
-    "heimrichhannot/contao-news-bundle": "^3.0-beta",
-    "heimrichhannot/contao-fieldpalette-bundle": "0.*||1.*",
-    "heimrichhannot/contao-google-maps-bundle": "^1.2"
+    "heimrichhannot/contao-utils-bundle": "^2.120",
+    "heimrichhannot/contao-fieldpalette-bundle": "0.*||1.*"
   },
   "require-dev": {
     "contao/manager-plugin": "^2.0",
@@ -16,6 +15,11 @@
     "phpunit/phpunit": "^4.5",
     "satooshi/php-coveralls": "^1.0",
     "symfony/phpunit-bridge": "^2.8|^3.0"
+  },
+  "suggest": {
+    "heimrichhannot/contao-news-bundle": "^3.0-beta: Enhancements for contao news entity. Support for custom news palettes used in this bundle,",
+    "heimrichhannot/contao-news-list-reader-bundle": "^1.0: Comes with heimrichhannot/contao-news-bundle. Support for list and reader bundle. Needed for List and Reader Support of this bundle.",
+    "heimrichhannot/contao-google-maps-bundle": "^1.2"
   },
   "autoload": {
     "psr-4": {

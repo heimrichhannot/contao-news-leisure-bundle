@@ -16,9 +16,9 @@ use Contao\ManagerPlugin\Config\ConfigPluginInterface;
 use Contao\ManagerPlugin\Config\ContainerBuilder;
 use Contao\ManagerPlugin\Config\ExtensionPluginInterface;
 use Contao\NewsBundle\ContaoNewsBundle;
-use Contao\System;
-use HeimrichHannot\NewsBundle\HeimrichHannotContaoNewsBundle;
+use HeimrichHannot\GoogleChartsBundle\ContaoGoogleChartsBundle;
 use HeimrichHannot\NewsLeisureBundle\HeimrichHannotContaoNewsLeisureBundle;
+use HeimrichHannot\NewsListReaderBundle\ContaoNewsListReaderBundle;
 use HeimrichHannot\UtilsBundle\Container\ContainerUtil;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
@@ -29,10 +29,17 @@ class Plugin implements BundlePluginInterface, ExtensionPluginInterface, ConfigP
      */
     public function getBundles(ParserInterface $parser)
     {
-        $loadAfter = [ContaoCoreBundle::class, ContaoNewsBundle::class, HeimrichHannotContaoNewsBundle::class];
+        $loadAfter = [
+            ContaoCoreBundle::class,
+            ContaoNewsBundle::class,
+        ];
+
+        if (class_exists('HeimrichHannot\NewsListReaderBundle\ContaoNewsListReaderBundle')) {
+            $loadAfter[] = ContaoNewsListReaderBundle::class;
+        }
 
         if(class_exists('HeimrichHannot\GoogleChartsBundle\ContaoGoogleChartsBundle')) {
-            $loadAfter[] = 'HeimrichHannot\GoogleChartsBundle\ContaoGoogleChartsBundle';
+            $loadAfter[] = ContaoGoogleChartsBundle::class;
         }
 
         return [
@@ -42,7 +49,6 @@ class Plugin implements BundlePluginInterface, ExtensionPluginInterface, ConfigP
 
     public function registerContainerConfiguration(LoaderInterface $loader, array $managerConfig)
     {
-        $loader->load('@HeimrichHannotContaoNewsLeisureBundle/Resources/config/services.yml');
         $loader->load('@HeimrichHannotContaoNewsLeisureBundle/Resources/config/datacontainers.yml');
         $loader->load('@HeimrichHannotContaoNewsLeisureBundle/Resources/config/listener.yml');
     }
