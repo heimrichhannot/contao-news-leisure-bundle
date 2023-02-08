@@ -9,6 +9,7 @@ Thumbs.db
 nbproject/
 .project
 .settings/
+.history
 
 # composer
 vendor
